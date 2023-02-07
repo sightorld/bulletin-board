@@ -1,0 +1,33 @@
+@import url(//db.onlinewebfonts.com/c/8f2a9d487bbbc60974cd132fc3a63862?family=Aeonik);
+
+
+*, body, html {
+  margin: 0;
+  padding: 0;
+	border: 0;
+	vertical-align: baseline;
+  box-sizing: border-box;
+  height: 100%;
+
+  font-family: Aeonik, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $active-text-color;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.item-with-text {
+  width: stretch;
+  width: 100%;
+  transition: 0.7s;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
