@@ -9,7 +9,7 @@
         <img src="~/assets/icons/logo.svg" alt="logo" width="40" >
         <h1 class="logo-name">BBoard</h1>
       </div>
-      <AtomsNavList />
+      <NavList />
     </div>
     <div class="lower-side">
       <div class="item-with-text logout">

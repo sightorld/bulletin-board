@@ -1,5 +1,22 @@
 @import url(//db.onlinewebfonts.com/c/8f2a9d487bbbc60974cd132fc3a63862?family=Aeonik);
 
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/AeonikProTRIAL-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/AeonikProTRIAL-Light.otf") format("opentype");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Aeonik Pro";
+  src: url("/fonts/AeonikProTRIAL-Regular.otf") format("opentype");
+  font-weight: normal;
+}
 
 *, body, html {
   margin: 0;
@@ -9,7 +26,7 @@
   box-sizing: border-box;
   height: 100%;
 
-  font-family: Aeonik, sans-serif !important;
+  font-family: "Aeonik Pro", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -30,4 +47,10 @@ ol, ul {
   flex-direction: row;
   align-items: center;
   gap: 18px;
+}
+
+.active {
+  color: $active-text-color !important;
+  stroke: $active-text-color !important;
+  border-color: $active-text-color !important;
 }
