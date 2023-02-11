@@ -1,6 +1,31 @@
 <script setup lang="ts">
-const a = ref(false);
+const openFlag = ref(false);
+const textHeights = ref({
+  scroll: 0,
+  offset: 0
+});
 
+const rolloutPresence = computed(() => {
+  return textHeights.value.scroll > textHeights.value.offset;
+});
+
+onMounted(() => {
+  let divRes = document.getElementById("post-content");
+  if (divRes) {
+    textHeights.value = {
+      scroll: divRes.scrollHeight,
+      offset: divRes.offsetHeight
+    }
+    window.addEventListener('resize', function(){
+      if (divRes) {
+        textHeights.value = {
+          scroll: divRes.scrollHeight,
+          offset: divRes.offsetHeight
+        }
+      }
+    })
+  }
+})
 </script>
 
 <template>
@@ -8,12 +33,12 @@ const a = ref(false);
     <div class="post-name">
       Cool post.png
     </div>
-    <div class="post-content" :class="a ? 'open' : ''">
-      Sometimes that's just the way it has to be. Sure, there were probably other options, but he didn't let them enter his mind. It was done and that was that. It was just the way it had to be.
+    <div class="post-content" id="post-content" :class="{open: openFlag, rolled: rolloutPresence}">
+      Sometint was that.lne and that was that.'t lne and that was that.that was that. It was just the way it had to be. Sure, there were probably other options, but he didn't let them enter his mind. 
     </div>
-    <div class="post-rollout">
-      <div class="pr-button" :class="a ? 'open' : ''" @click="a = !a">
-        {{a ? 'Свернуть шею автору' : 'Посмотреть полностью' }}
+    <div class="post-rollout" v-show="rolloutPresence">
+      <div class="pr-button" :class="{open: openFlag}" @click="openFlag = !openFlag">
+        {{openFlag ? 'Свернуть шею автору' : 'Посмотреть полностью' }}
       </div>
     </div>
   </div>
@@ -30,14 +55,14 @@ const a = ref(false);
 
 .post-content {
   text-align: justify;
-  font-weight: 400;
+  font-weight: normal;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 23px;
   min-height: 5rem;
   max-height: 10rem;
   overflow-y: hidden;
   position: relative;
-  &:not(.open)::after {
+  &:not(.open).rolled::after {
     position: absolute;
     bottom: 0;
     width: 100%;

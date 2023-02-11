@@ -29,6 +29,18 @@
   .page {
     background-color: $darker-bg-color;
     width: 65vw;
+    height: 100%;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+      border-right: 1px solid $darker-bg-color;
+      background-color: $darker-bg-color;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0.5rem;
+      border-right: 1px solid $darker-bg-color;
+      background-color: $lighter-bg-color;
+    }
   }
   .manager {
     background-color: $lighter-bg-color;

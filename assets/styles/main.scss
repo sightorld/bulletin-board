@@ -18,6 +18,10 @@
   font-weight: normal;
 }
 
+body, html {
+  overflow-y: hidden;
+}
+
 *, body, html {
   margin: 0;
   padding: 0;
